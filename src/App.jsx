@@ -5,18 +5,17 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import EngineeringVisualizations from "./components/EngineeringVisualizations";
 import Timeline from "./components/Timeline";
 import Contact from "./components/Contact";
+import Publications from "./components/Publications";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import ParticleBackground from "./components/ParticleBackground";
-import GitHubGraph from "./components/GitHubGraph";
-import BlogPlaceholder from "./components/BlogPlaceholder";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const [isDark, setIsDark] = useState(() => localStorage.getItem("theme") !== "light");
-  const [visits, setVisits] = useState(0);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -27,12 +26,6 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1700);
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const total = Number(localStorage.getItem("visit-count") || "0") + 1;
-    localStorage.setItem("visit-count", String(total));
-    setVisits(total);
   }, []);
 
   const sectionAnimation = useMemo(
@@ -46,7 +39,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900 transition-colors duration-500 dark:bg-steel-950 dark:text-slate-100">
+    <div className="min-h-screen bg-steel-980 text-slate-100 transition-colors duration-500">
       <ParticleBackground />
       <AnimatePresence>{loading ? <LoadingScreen key="loader" /> : null}</AnimatePresence>
 
@@ -64,13 +57,13 @@ function App() {
           <Projects />
         </motion.div>
         <motion.div {...sectionAnimation}>
+          <EngineeringVisualizations />
+        </motion.div>
+        <motion.div {...sectionAnimation}>
           <Timeline />
         </motion.div>
         <motion.div {...sectionAnimation}>
-          <GitHubGraph visits={visits} />
-        </motion.div>
-        <motion.div {...sectionAnimation}>
-          <BlogPlaceholder />
+          <Publications />
         </motion.div>
         <motion.div {...sectionAnimation}>
           <Contact />

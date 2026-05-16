@@ -1,27 +1,31 @@
-# Mechatronics Engineer Portfolio (React + Vite)
+# Scientific Mechatronics Portfolio (React + Vite)
 
-A premium, responsive personal portfolio website designed for mechatronics engineers. Built with React, Vite, Tailwind CSS, and Framer Motion, with dark/light mode and GitHub Pages deployment support.
+A research-grade, engineering-focused portfolio designed as a robotics command-center interface. Built with React, Vite, Tailwind CSS, Framer Motion, Three.js (React Three Fiber), GSAP, and D3.
 
 ## Tech Stack
 
 - React + Vite
 - Tailwind CSS
 - Framer Motion
+- Three.js + React Three Fiber + Drei
+- GSAP
+- D3.js
 - gh-pages (deployment)
 
 ## Features
 
-- Sticky responsive navbar with smooth scrolling
-- Full-screen hero with terminal-style intro and typing animation
-- About, Skills, Projects, Timeline, Contact sections
-- Animated project cards and skill progress bars
-- Dark/light mode toggle persisted in localStorage
-- Loading screen and animated particle background
-- GitHub contribution graph placeholder
-- Blog placeholder section
-- Visitor counter (localStorage)
-- Download resume button
-- SEO-friendly metadata and semantic section structure
+- Robotics-lab command bar navigation
+- Scientific hero with telemetry waveform, live metrics, and 3D robotics digital twin
+- Engineering profile in research abstract format
+- Diagnostics dashboard with circular gauges, radar chart, and subsystem health bars
+- Scientific case-study projects with architecture, challenges, benchmarks, and outcomes
+- Engineering visualization section (oscilloscope, heatmap, motion diagram)
+- Mission-log experience timeline
+- Publications / research section with paper and patent placeholders
+- Secure terminal-inspired contact interface
+- Animated particle network + subtle code rain background
+- Boot sequence loading screen
+- GitHub Pages deployment support
 
 ## Project Structure
 
@@ -111,10 +115,10 @@ A premium, responsive personal portfolio website designed for mechatronics engin
 
 ## Performance and Accessibility Notes
 
-- Images are lazy-loaded where appropriate
-- Semantic section tags and headings are used
-- Form labels are present for inputs
-- Motion is subtle to reduce cognitive load
+- 3D scene is lazy-loaded using React Suspense for faster initial paint
+- Semantic section tags and headings are used across all modules
+- Form labels and accessible aria labels are preserved
+- Reduced motion preference is respected in global CSS
 
 ## License
 

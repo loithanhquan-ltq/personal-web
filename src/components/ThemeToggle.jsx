@@ -3,11 +3,11 @@ function ThemeToggle({ isDark, onToggle }) {
     <button
       type="button"
       onClick={onToggle}
-      className="glass inline-flex h-10 w-10 items-center justify-center rounded-full border text-lg transition hover:scale-105"
+      className="mono inline-flex h-10 items-center justify-center rounded-full border border-cyan-300/40 bg-steel-900/80 px-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200 transition hover:bg-steel-800"
       aria-label="Toggle dark mode"
       title="Toggle theme"
     >
-      {isDark ? "Light" : "Dark"}
+      {isDark ? "Dark" : "Light"}
     </button>
   );
 }

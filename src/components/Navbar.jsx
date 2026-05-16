@@ -8,17 +8,17 @@ function Navbar({ isDark, onToggleTheme }) {
 
   return (
     <header className="fixed top-0 z-40 w-full px-4 pt-4 md:px-8">
-      <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3">
-        <a href="#home" className="text-sm font-semibold uppercase tracking-[0.2em]">
-          MECHATRONICS
+      <nav className="hud-card mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3 md:px-5">
+        <a href="#home" className="mono text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200 md:text-sm">
+          LTQ / Robotics Command
         </a>
 
-        <ul className="hidden gap-6 md:flex">
+        <ul className="hidden items-center gap-5 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-slate-700 transition hover:text-cyan-600 dark:text-slate-200 dark:hover:text-neon-cyan"
+                className="mono text-xs uppercase tracking-[0.16em] text-slate-300 transition hover:text-cyan-200"
               >
                 {link.label}
               </a>
@@ -30,7 +30,7 @@ function Navbar({ isDark, onToggleTheme }) {
           <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
           <button
             type="button"
-            className="glass rounded-xl px-3 py-2 text-sm md:hidden"
+            className="mono rounded-xl border border-cyan-300/30 bg-steel-900/80 px-3 py-2 text-xs uppercase tracking-[0.15em] text-cyan-100 md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Open menu"
@@ -43,12 +43,16 @@ function Navbar({ isDark, onToggleTheme }) {
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        className="glass mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl md:hidden"
+        className="hud-card mx-auto mt-2 max-w-7xl overflow-hidden rounded-2xl md:hidden"
       >
         <ul className="space-y-2 p-4">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} onClick={() => setOpen(false)} className="block py-2 text-sm">
+              <a
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="mono block py-2 text-xs uppercase tracking-[0.18em] text-slate-200"
+              >
                 {link.label}
               </a>
             </li>

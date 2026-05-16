@@ -1,10 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Manrope:wght@400;500;700;800&family=Orbitron:wght@500;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
   scroll-behavior: smooth;
+  --bg-main: #05070d;
+  --bg-elev: rgba(8, 16, 36, 0.72);
+  --bg-elev-2: rgba(16, 30, 56, 0.5);
+  --grid-c: rgba(66, 154, 255, 0.16);
+  --text-main: #d6ebff;
+  --text-muted: #8ea8c7;
+  --line-main: rgba(65, 217, 255, 0.28);
+  --cyan: #41d9ff;
+  --teal: #2cf7c7;
+  --blue: #2e8dff;
+  --warning: #ff7c3d;
 }
 
 html.dark {
@@ -13,34 +26,110 @@ html.dark {
 
 body {
   margin: 0;
-  font-family: "Sora", "Space Grotesk", "Segoe UI", sans-serif;
-  background-image: radial-gradient(circle at 0% 0%, rgba(90, 130, 255, 0.08), transparent 30%),
-    radial-gradient(circle at 100% 100%, rgba(44, 247, 199, 0.08), transparent 30%);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  background-image: radial-gradient(circle at 0% 0%, rgba(65, 217, 255, 0.12), transparent 34%),
+    radial-gradient(circle at 100% 0%, rgba(46, 141, 255, 0.14), transparent 30%),
+    radial-gradient(circle at 50% 120%, rgba(44, 247, 199, 0.1), transparent 36%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-.glass {
-  @apply border border-white/20 bg-white/50 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Orbitron", "Manrope", sans-serif;
+  letter-spacing: 0.02em;
 }
 
-.section-container {
-  @apply mx-auto max-w-6xl px-6 py-20 md:px-8;
+code,
+.mono {
+  font-family: "JetBrains Mono", monospace;
 }
 
 .grid-overlay {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image: linear-gradient(var(--grid-c) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-c) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.section-container {
+  @apply mx-auto w-full max-w-7xl px-4 py-20 md:px-8;
+}
+
+.hud-card {
+  @apply relative overflow-hidden rounded-2xl border border-cyan-300/20 bg-steel-900/45 shadow-hud backdrop-blur-xl;
+}
+
+.hud-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(65, 217, 255, 0.08), transparent 40%);
+  pointer-events: none;
+}
+
+.hud-frame {
+  position: relative;
+}
+
+.hud-frame::before,
+.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(65, 217, 255, 0.55);
+  pointer-events: none;
+}
+
+.hud-frame::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.hud-frame::after {
+  right: -1px;
+  bottom: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+.tech-pill {
+  @apply inline-flex items-center rounded-full border border-cyan-300/30 bg-cyan-400/10 px-3 py-1 text-xs font-semibold tracking-wide text-cyan-200;
+}
+
+.instrument-panel {
+  @apply rounded-xl border border-blue-300/20 bg-steel-860/55 p-4;
 }
 
 .terminal-caret::after {
   content: "";
-  width: 9px;
+  width: 10px;
   height: 1.1em;
   margin-left: 6px;
   display: inline-block;
-  background-color: currentColor;
+  background-color: var(--cyan);
   animation: blink 1s step-end infinite;
+}
+
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(65, 217, 255, 0.15) 46%, transparent 100%);
+  transform: translateY(-120%);
+  animation: scan 4.2s linear infinite;
+  pointer-events: none;
+}
+
+.blueprint-bg {
+  background-image: linear-gradient(rgba(46, 141, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 141, 255, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
 }
 
 @keyframes blink {
@@ -51,5 +140,16 @@ body {
   51%,
   100% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
