@@ -1,3 +1,5 @@
+const assetBase = `${import.meta.env.BASE_URL}assets`;
+
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -26,7 +28,7 @@ export const skillSet = [
 export const projects = [
   {
     title: "Autonomous Robot",
-    image: "/assets/bg.png",
+    image: `${assetBase}/bg.png`,
     description:
       "Developed a ROS2-based autonomous mobile robot with SLAM, sensor fusion, and adaptive obstacle avoidance for indoor navigation.",
     tech: ["ROS2", "C++", "LiDAR", "OpenCV"],
@@ -35,7 +37,7 @@ export const projects = [
   },
   {
     title: "Smart Factory Monitoring System",
-    image: "/assets/bg.png",
+    image: `${assetBase}/bg.png`,
     description:
       "Built a real-time industrial dashboard for predictive maintenance with PLC integration and edge analytics.",
     tech: ["Python", "PLC", "MQTT", "InfluxDB"],
@@ -44,7 +46,7 @@ export const projects = [
   },
   {
     title: "AI Vision Inspection System",
-    image: "/assets/bg.png",
+    image: `${assetBase}/bg.png`,
     description:
       "Engineered a defect detection pipeline using deep learning and high-speed camera calibration for manufacturing QA.",
     tech: ["PyTorch", "Computer Vision", "CUDA", "MLOps"],
@@ -53,7 +55,7 @@ export const projects = [
   },
   {
     title: "IoT Automation Platform",
-    image: "/assets/bg.png",
+    image: `${assetBase}/bg.png`,
     description:
       "Created a cloud-connected IoT control layer for automation cells with secure device orchestration and alerting.",
     tech: ["ESP32", "Docker", "Node-RED", "AWS IoT"],
@@ -62,7 +64,7 @@ export const projects = [
   },
   {
     title: "Drone Navigation Controller",
-    image: "/assets/bg.png",
+    image: `${assetBase}/bg.png`,
     description:
       "Implemented robust flight control and path planning for UAV waypoint tracking under dynamic wind disturbances.",
     tech: ["PX4", "MAVLink", "Control Systems", "C++"],

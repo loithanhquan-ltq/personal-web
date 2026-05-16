@@ -1,6 +1,8 @@
 import SectionHeading from "./SectionHeading";
 
 function About() {
+  const profileImageUrl = `${import.meta.env.BASE_URL}assets/quan.jpeg`;
+
   return (
     <section id="about" className="section-container">
       <SectionHeading
@@ -17,7 +19,7 @@ function About() {
           </p>
 
           <img
-            src="/assets/quan.jpeg"
+            src={profileImageUrl}
             alt="Profile placeholder"
             className="mt-5 h-56 w-full rounded-xl object-cover"
             loading="lazy"

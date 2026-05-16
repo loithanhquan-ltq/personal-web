@@ -10,6 +10,7 @@ const phrases = [
 function Hero() {
   const [typed, setTyped] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
+  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 
   useEffect(() => {
     const phrase = phrases[phraseIndex];
@@ -71,7 +72,7 @@ function Hero() {
             <a href="#projects" className="rounded-full bg-cyan-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500">
               View Projects
             </a>
-            <a href="/resume.pdf" className="glass rounded-full px-6 py-3 text-sm font-semibold">
+            <a href={resumeUrl} className="glass rounded-full px-6 py-3 text-sm font-semibold">
               Download Resume
             </a>
             <a href="#contact" className="glass rounded-full px-6 py-3 text-sm font-semibold">
