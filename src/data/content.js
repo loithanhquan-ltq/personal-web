@@ -16,9 +16,9 @@ export const videos = [
     description: "Robot navigating autonomously with LiDAR-based obstacle avoidance and SLAM gmapping for real-time map building.",
   },
   {
-    id: "SAMPLE_02",
-    title: "SLAM Mapping in Action",
-    description: "Real-time map building across a 500 m² test facility with loop closure and drift correction.",
+    id: "tK9v3-IWUsY",
+    title: "Area Light — OpenGL + IMGUI",
+    description: "Real-time area lighting implementation using OpenGL with an interactive IMGUI control panel for parameter tuning.",
   },
   {
     id: "SAMPLE_03",
