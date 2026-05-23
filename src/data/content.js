@@ -11,9 +11,9 @@ export const navLinks = [
 
 export const videos = [
   {
-    id: "SAMPLE_01",
-    title: "Autonomous Navigation Demo",
-    description: "Indoor robot navigating a dynamic factory environment using SLAM and model predictive control.",
+    id: "MfBQdkU-rRc",
+    title: "ROS Autonomous Navigation & Obstacle Avoidance",
+    description: "Robot navigating autonomously with LiDAR-based obstacle avoidance and SLAM gmapping for real-time map building.",
   },
   {
     id: "SAMPLE_02",
