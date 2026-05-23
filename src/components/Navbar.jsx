@@ -1,64 +1,150 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "../data/content";
 
-function Navbar({ isDark, onToggleTheme }) {
+function useActiveSection() {
+  const [active, setActive] = useState("home");
+
+  useEffect(() => {
+    const ids = navLinks.map((l) => l.href.replace("#", ""));
+    const observers = ids.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id); },
+        { rootMargin: "-40% 0px -55% 0px" }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+  }, []);
+
+  return active;
+}
+
+const navVariants = {
+  hidden: { opacity: 0, scale: 0.96, y: -8 },
+  visible: {
+    opacity: 1, scale: 1, y: 0,
+    transition: { duration: 0.4, ease: "easeOut" }
+  },
+};
+
+const linkVariants = {
+  hidden: { opacity: 0, y: -6 },
+  visible: (i) => ({
+    opacity: 1, y: 0,
+    transition: { delay: 0.3 + i * 0.06, duration: 0.3, ease: "easeOut" },
+  }),
+};
+
+function NavLink({ link, index, active, onClick }) {
+  const isActive = active === link.href.replace("#", "");
+
+  return (
+    <motion.li
+      key={link.href}
+      custom={index}
+      variants={linkVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.a
+        href={link.href}
+        onClick={onClick}
+        className="relative flex flex-col items-center gap-0.5 text-sm font-medium text-gray-500 transition-colors"
+        whileHover={{ scale: 1.08 }}
+        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+        style={{ color: isActive ? "#0072BD" : undefined }}
+      >
+        <span className={isActive ? "text-[#0072BD]" : "hover:text-gray-800"}>
+          {link.label}
+        </span>
+        <motion.span
+          className="h-1 w-1 rounded-full bg-[#0072BD]"
+          initial={false}
+          animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0 }}
+          transition={{ type: "spring", stiffness: 500, damping: 25 }}
+        />
+      </motion.a>
+    </motion.li>
+  );
+}
+
+function Navbar() {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection();
 
   return (
     <header className="fixed top-0 z-40 w-full px-4 pt-4 md:px-8">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-xl border border-gray-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-sm md:px-5">
-        <a href="#home" className="mono text-xs font-semibold uppercase tracking-[0.24em] text-gray-800 md:text-sm">
-          Loi Thanh Quan
-        </a>
-
-        <ul className="hidden items-center gap-5 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="mono text-xs uppercase tracking-[0.16em] text-gray-500 transition hover:text-blue-600"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-3">
-          <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
-          <button
-            type="button"
-            className="mono rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs uppercase tracking-[0.15em] text-gray-600 md:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-label="Open menu"
-          >
-            Menu
-          </button>
-        </div>
-      </nav>
-
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm md:hidden"
+      <motion.nav
+        variants={navVariants}
+        initial="hidden"
+        animate="visible"
+        className="mx-auto flex max-w-7xl items-center justify-between rounded-xl border border-gray-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-sm md:justify-center md:px-5"
       >
-        <ul className="space-y-2 p-4">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="mono block py-2 text-xs uppercase tracking-[0.18em] text-gray-600"
-              >
-                {link.label}
-              </a>
-            </li>
+        {/* Desktop links — centered */}
+        <ul className="hidden items-center gap-6 md:flex">
+          {navLinks.map((link, i) => (
+            <NavLink key={link.href} link={link} index={i} active={active} />
           ))}
         </ul>
-      </motion.div>
+
+        {/* Mobile menu button */}
+        <button
+          type="button"
+          className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-medium text-gray-600 transition hover:bg-gray-100 md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label="Open menu"
+        >
+          {open ? "Close" : "Menu"}
+        </button>
+      </motion.nav>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm md:hidden"
+          >
+            <ul className="p-3">
+              {navLinks.map((link, i) => {
+                const isActive = active === link.href.replace("#", "");
+                return (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.2 }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
+                        isActive
+                          ? "bg-blue-50 text-[#0072BD]"
+                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      }`}
+                    >
+                      <span
+                        className={`h-4 w-0.5 rounded-full ${isActive ? "bg-[#0072BD]" : "bg-transparent"}`}
+                      />
+                      {link.label}
+                    </a>
+                  </motion.li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
