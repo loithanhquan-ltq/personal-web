@@ -11,13 +11,13 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="relative z-10 border-t border-cyan-300/20 bg-steel-950/80 py-8 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-slate-300 md:flex-row">
-        <p className="mono text-xs uppercase tracking-[0.15em]">(c) {new Date().getFullYear()} LTQ Robotics Systems Lab</p>
+    <footer className="relative z-10 border-t border-gray-200 bg-white py-8">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm text-gray-500 md:flex-row">
+        <p className="mono text-xs uppercase tracking-[0.15em]">&copy; {new Date().getFullYear()} Loi Thanh Quan</p>
 
         <div className="flex gap-4">
           {socialLinks.map((link) => (
-            <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="mono text-xs uppercase tracking-[0.12em] hover:text-cyan-200">
+            <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="mono text-xs uppercase tracking-[0.12em] hover:text-blue-600">
               {link.label}
             </a>
           ))}
@@ -28,7 +28,7 @@ function Footer() {
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="mono fixed bottom-5 right-5 rounded-full border border-cyan-300/35 bg-steel-900 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-cyan-100 shadow-card"
+          className="mono fixed bottom-5 right-5 rounded-full border border-gray-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-gray-600 shadow-sm"
           aria-label="Back to top"
         >
           Top

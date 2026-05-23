@@ -6,12 +6,12 @@ function Timeline() {
   return (
     <section id="timeline" className="section-container">
       <SectionHeading
-        eyebrow="Mission Log"
-        title="Experience timeline with R&D milestones"
-        description="Chronological log of engineering missions, development initiatives, and research-focused technical achievements."
+        eyebrow="Timeline"
+        title="Experience, education, and R&D milestones"
+        description="A chronological record of roles, research initiatives, and academic achievements."
       />
 
-      <div className="relative ml-2 border-l border-cyan-400/35 pl-8">
+      <div className="relative ml-2 border-l border-blue-200 pl-8">
         {timelineItems.map((item, index) => (
           <motion.article
             key={item.title}
@@ -21,14 +21,14 @@ function Timeline() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.08 }}
           >
-            <span className="absolute -left-[2.16rem] top-6 h-3.5 w-3.5 rounded-full border-2 border-cyan-400 bg-steel-980" />
+            <span className="absolute -left-[2.16rem] top-6 h-3.5 w-3.5 rounded-full border-2 border-blue-500 bg-blue-600" />
             <div className="flex flex-wrap items-center gap-3">
-              <p className="mono text-xs uppercase tracking-[0.18em] text-cyan-200">{item.year}</p>
+              <p className="mono text-xs uppercase tracking-[0.18em] text-blue-600">{item.year}</p>
               <span className="tech-pill">{item.type}</span>
             </div>
-            <h3 className="mt-2 text-lg font-semibold text-slate-100">{item.title}</h3>
-            <p className="text-sm text-slate-300">{item.subtitle}</p>
-            <p className="mt-3 text-sm text-slate-300">{item.details}</p>
+            <h3 className="mt-2 text-lg font-semibold text-gray-900">{item.title}</h3>
+            <p className="text-sm text-gray-500">{item.subtitle}</p>
+            <p className="mt-3 text-sm text-gray-600">{item.details}</p>
           </motion.article>
         ))}
       </div>

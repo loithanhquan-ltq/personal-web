@@ -39,7 +39,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-steel-980 text-slate-100 transition-colors duration-500">
+    <div className="min-h-screen bg-[#f0f0f4] text-gray-800 transition-colors duration-500">
       <ParticleBackground />
       <AnimatePresence>{loading ? <LoadingScreen key="loader" /> : null}</AnimatePresence>
 

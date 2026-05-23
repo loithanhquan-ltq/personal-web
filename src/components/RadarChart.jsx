@@ -44,17 +44,17 @@ function RadarChart({ metrics, size = 260 }) {
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full" role="img" aria-label="Technical capability radar chart">
       {chart.rings.map((points, idx) => (
-        <polygon key={idx} points={points} fill="none" stroke="rgba(66,154,255,0.22)" strokeWidth="1" />
+        <polygon key={idx} points={points} fill="none" stroke="rgba(0,0,0,0.09)" strokeWidth="1" />
       ))}
       {chart.axes.map((axis) => (
         <g key={axis.label}>
-          <line x1={chart.center} y1={chart.center} x2={axis.x2} y2={axis.y2} stroke="rgba(65,217,255,0.25)" strokeWidth="1" />
-          <text x={axis.lx} y={axis.ly} fill="#8ea8c7" fontSize="9" textAnchor="middle" dominantBaseline="middle">
+          <line x1={chart.center} y1={chart.center} x2={axis.x2} y2={axis.y2} stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
+          <text x={axis.lx} y={axis.ly} fill="#52525b" fontSize="9" textAnchor="middle" dominantBaseline="middle">
             {axis.label}
           </text>
         </g>
       ))}
-      <path d={chart.translatedPath} fill="rgba(44,247,199,0.22)" stroke="#2cf7c7" strokeWidth="2" />
+      <path d={chart.translatedPath} fill="rgba(0,114,189,0.12)" stroke="#0072BD" strokeWidth="2" />
     </svg>
   );
 }

@@ -6,24 +6,24 @@ function CircularGauge({ label, value }) {
   return (
     <article className="instrument-panel flex flex-col items-center justify-center">
       <svg viewBox="0 0 120 120" className="h-28 w-28" role="img" aria-label={`${label} gauge`}>
-        <circle cx="60" cy="60" r={radius} fill="none" stroke="rgba(65,217,255,0.2)" strokeWidth="8" />
+        <circle cx="60" cy="60" r={radius} fill="none" stroke="rgba(0,0,0,0.08)" strokeWidth="8" />
         <circle
           cx="60"
           cy="60"
           r={radius}
           fill="none"
-          stroke="#41d9ff"
+          stroke="#0072BD"
           strokeWidth="8"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           strokeLinecap="round"
           transform="rotate(-90 60 60)"
         />
-        <text x="60" y="64" fill="#d6ebff" fontSize="20" fontWeight="700" textAnchor="middle">
+        <text x="60" y="64" fill="#18181b" fontSize="20" fontWeight="700" textAnchor="middle">
           {value}
         </text>
       </svg>
-      <p className="mono text-[11px] uppercase tracking-[0.14em] text-slate-300">{label}</p>
+      <p className="mono text-[11px] uppercase tracking-[0.14em] text-gray-500">{label}</p>
     </article>
   );
 }

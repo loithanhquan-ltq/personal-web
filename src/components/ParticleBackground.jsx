@@ -13,31 +13,25 @@ function ParticleBackground() {
       canvas.height = window.innerHeight;
     };
 
-    const particles = Array.from({ length: 64 }, () => ({
+    const particles = Array.from({ length: 48 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      size: Math.random() * 2 + 0.8
-    }));
-
-    const rainColumns = Array.from({ length: 36 }, (_, i) => ({
-      x: i * 40,
-      y: Math.random() * window.innerHeight,
-      speed: 0.6 + Math.random() * 1.1
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      size: Math.random() * 1.8 + 0.6
     }));
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
-
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
         ctx.beginPath();
-        ctx.fillStyle = "rgba(65, 217, 255, 0.38)";
+        ctx.fillStyle = "rgba(0, 114, 189, 0.18)";
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       });
@@ -47,9 +41,9 @@ function ParticleBackground() {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 90) {
-            ctx.strokeStyle = `rgba(65, 217, 255, ${(90 - dist) / 650})`;
-            ctx.lineWidth = 1;
+          if (dist < 80) {
+            ctx.strokeStyle = `rgba(0, 114, 189, ${(80 - dist) / 1200})`;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -57,14 +51,6 @@ function ParticleBackground() {
           }
         }
       }
-
-      ctx.fillStyle = "rgba(44, 247, 199, 0.12)";
-      ctx.font = "11px JetBrains Mono";
-      rainColumns.forEach((column) => {
-        column.y += column.speed;
-        if (column.y > canvas.height + 20) column.y = -20;
-        ctx.fillText(Math.random() > 0.5 ? "1" : "0", column.x, column.y);
-      });
 
       frame = requestAnimationFrame(draw);
     };
@@ -79,7 +65,7 @@ function ParticleBackground() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 opacity-55" aria-hidden="true" />;
+  return <canvas ref={canvasRef} className="pointer-events-none fixed inset-0 z-0 opacity-70" aria-hidden="true" />;
 }
 
 export default ParticleBackground;

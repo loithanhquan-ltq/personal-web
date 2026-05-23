@@ -5,20 +5,20 @@ function Publications() {
   return (
     <section id="research" className="section-container">
       <SectionHeading
-        eyebrow="Publications / Research"
-        title="Scientific output, technical writing, and innovation assets"
-        description="A curated research section for papers, whitepapers, conference contributions, and patent-track concepts."
+        eyebrow="Research"
+        title="Publications, papers, and technical writing"
+        description="Conference contributions, journal articles, whitepapers, and patent-track work."
       />
 
       <div className="grid gap-4">
         {publications.map((item) => (
           <article key={item.title} className="hud-card rounded-xl p-5">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <h3 className="text-lg font-semibold text-slate-100">{item.title}</h3>
-              <span className="tech-pill">{item.type}</span>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <h3 className="text-base font-semibold text-gray-900">{item.title}</h3>
+              <span className="tech-pill flex-shrink-0">{item.type}</span>
             </div>
-            <p className="mt-2 text-sm text-slate-300">{item.venue}</p>
-            <p className="mono mt-1 text-xs uppercase tracking-[0.15em] text-cyan-200">{item.year}</p>
+            <p className="mt-2 text-sm text-gray-600">{item.venue}</p>
+            <p className="mono mt-1 text-xs uppercase tracking-[0.15em] text-blue-600">{item.year}</p>
           </article>
         ))}
       </div>

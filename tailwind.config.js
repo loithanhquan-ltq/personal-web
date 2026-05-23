@@ -5,31 +5,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        slategrid: "#101a32",
+        slategrid: "#f0f0f4",
         steel: {
-          980: "#020510",
-          950: "#05070d",
-          900: "#0b1020",
-          860: "#0d1630",
-          800: "#121a31",
-          700: "#1d2c4d"
+          980: "#ffffff",
+          950: "#fafafa",
+          900: "#f4f4f5",
+          860: "#e4e4e7",
+          800: "#d4d4d8",
+          700: "#a1a1aa"
         },
-        neon: {
-          cyan: "#41d9ff",
-          mint: "#2cf7c7",
-          amber: "#ffd166",
-          blue: "#2e8dff",
-          warning: "#ff7c3d"
+        matlab: {
+          blue: "#0072BD",
+          orange: "#E87722",
+          green: "#77AC30",
+          red: "#D95319",
+          yellow: "#EDB120",
+          cyan: "#4DBEEE",
+          purple: "#7E2F8E"
         }
       },
       boxShadow: {
-        glow: "0 0 40px rgba(65, 217, 255, 0.25)",
-        card: "0 12px 36px rgba(0, 0, 0, 0.22)",
-        hud: "inset 0 0 0 1px rgba(65, 217, 255, 0.25), 0 14px 30px rgba(1, 9, 27, 0.75)"
+        glow: "0 0 20px rgba(0, 114, 189, 0.15)",
+        card: "0 2px 8px rgba(0, 0, 0, 0.06)",
+        hud: "inset 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 10px rgba(0, 0, 0, 0.07)"
       },
       backgroundImage: {
-        mesh: "radial-gradient(circle at 10% 20%, rgba(65, 217, 255, 0.18), transparent 35%), radial-gradient(circle at 90% 0%, rgba(44, 247, 199, 0.14), transparent 30%), linear-gradient(135deg, #0b1020 0%, #05070d 100%)",
-        blueprint: "linear-gradient(rgba(46, 141, 255, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(46, 141, 255, 0.12) 1px, transparent 1px), radial-gradient(circle at 20% 0%, rgba(65, 217, 255, 0.12), transparent 48%)"
+        mesh: "radial-gradient(circle, rgba(0,0,0,0.055) 1px, transparent 1px)",
+        blueprint: "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)"
       },
       keyframes: {
         float: {
@@ -53,8 +55,8 @@ export default {
           "20%, 60%": { opacity: ".65" }
         },
         pulseGlow: {
-          "0%, 100%": { boxShadow: "0 0 0 rgba(65, 217, 255, 0)" },
-          "50%": { boxShadow: "0 0 30px rgba(65, 217, 255, 0.35)" }
+          "0%, 100%": { boxShadow: "0 0 0 rgba(0, 114, 189, 0)" },
+          "50%": { boxShadow: "0 0 20px rgba(0, 114, 189, 0.2)" }
         },
         scan: {
           "0%": { transform: "translateY(-100%)" },

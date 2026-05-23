@@ -6,20 +6,20 @@ function LoadingScreen() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.55 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-steel-980"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#f0f0f4]"
     >
-      <div className="w-full max-w-lg rounded-2xl border border-cyan-300/20 bg-steel-900/65 p-6 shadow-hud backdrop-blur">
-        <p className="mono text-xs uppercase tracking-[0.2em] text-cyan-200">Boot Sequence</p>
-        <h2 className="mt-2 text-xl font-semibold text-slate-100">Loi Thanh Quan</h2>
-        <div className="mt-4 space-y-3 text-sm text-slate-300">
-          <p>$ init control-center ... ok</p>
-          <p>$ load telemetry-stream ... ok</p>
-          <p>$ validate safety-interlocks ... ok</p>
+      <div className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+        <p className="mono text-xs uppercase tracking-[0.2em] text-blue-600">Initializing</p>
+        <h2 className="mt-2 text-xl font-semibold text-gray-800">Loi Thanh Quan</h2>
+        <div className="mt-4 space-y-2 font-mono text-sm text-gray-500">
+          <p>Loading profile data ... done</p>
+          <p>Rendering visualizations ... done</p>
+          <p>Building project index ... done</p>
         </div>
-        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-steel-800">
-          <div className="h-1.5 w-full origin-left animate-pulse bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-300" />
+        <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-gray-100">
+          <div className="h-1.5 w-full origin-left animate-pulse bg-gradient-to-r from-blue-500 via-blue-400 to-matlab-cyan" />
         </div>
-        <p className="mono mt-3 text-xs uppercase tracking-[0.2em] text-cyan-300">system online</p>
+        <p className="mono mt-3 text-xs uppercase tracking-[0.2em] text-green-600">ready</p>
       </div>
     </motion.div>
   );

@@ -1,14 +1,14 @@
 const assetBase = `${import.meta.env.BASE_URL}assets`;
 
 export const navLinks = [
-  { label: "Command", href: "#home" },
-  { label: "Profile", href: "#about" },
-  { label: "Diagnostics", href: "#skills" },
-  { label: "Case Studies", href: "#projects" },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Visualizations", href: "#visualizations" },
-  { label: "Mission Log", href: "#timeline" },
+  { label: "Timeline", href: "#timeline" },
   { label: "Research", href: "#research" },
-  { label: "Terminal", href: "#contact" }
+  { label: "Contact", href: "#contact" }
 ];
 
 export const heroTypingPhrases = [
@@ -17,10 +17,10 @@ export const heroTypingPhrases = [
 ];
 
 export const heroMetrics = [
-  { label: "Active Nodes", value: "128", delta: "+12%" },
-  { label: "Control Loop", value: "1.4ms", delta: "Stable" },
-  { label: "System Uptime", value: "99.94%", delta: "+0.2" },
-  { label: "Field Tests", value: "412", delta: "Validated" }
+  { label: "Years Experience", value: "5+", delta: "Engineering" },
+  { label: "Projects Built", value: "24+", delta: "Delivered" },
+  { label: "GitHub Commits", value: "3.2k+", delta: "& counting" },
+  { label: "Test Pass Rate", value: "97.8%", delta: "Validated" }
 ];
 
 export const profileSummary = {
@@ -267,7 +267,7 @@ export const socialLinks = [
 ];
 
 export const contactEndpoints = [
-  "ssh mission-comms@engineering-terminal",
-  "init secure-link --channel research",
-  "route --priority high --destination hcmc.vietnam"
+  "Location: Ho Chi Minh City, Vietnam",
+  "Availability: Open to full-time / research roles",
+  "Response time: typically within 24 hours"
 ];
