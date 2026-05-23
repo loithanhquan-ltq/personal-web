@@ -14,6 +14,14 @@ import ParticleBackground from "./components/ParticleBackground";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [isDark, setIsDark] = useState(
+    () => localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1700);
@@ -31,11 +39,11 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-[#f0f0f4] text-gray-800">
+    <div className="min-h-screen bg-[--bg-main] text-[--text-main]">
       <ParticleBackground />
       <AnimatePresence>{loading ? <LoadingScreen key="loader" /> : null}</AnimatePresence>
 
-      <Navbar />
+      <Navbar isDark={isDark} onToggle={() => setIsDark((v) => !v)} />
 
       <main className="relative z-10">
         <Hero />

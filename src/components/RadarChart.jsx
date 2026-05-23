@@ -34,7 +34,7 @@ function RadarChart({ metrics, size = 260 }) {
         y2: center + Math.sin(angle) * radius,
         lx: center + Math.cos(angle) * (radius + 16),
         ly: center + Math.sin(angle) * (radius + 16),
-        label: metric.axis
+        label: metric.axis,
       };
     });
 
@@ -44,17 +44,17 @@ function RadarChart({ metrics, size = 260 }) {
   return (
     <svg viewBox={`0 0 ${size} ${size}`} className="w-full" role="img" aria-label="Technical capability radar chart">
       {chart.rings.map((points, idx) => (
-        <polygon key={idx} points={points} fill="none" stroke="rgba(0,0,0,0.09)" strokeWidth="1" />
+        <polygon key={idx} points={points} fill="none" stroke="var(--svg-ring)" strokeWidth="1" />
       ))}
       {chart.axes.map((axis) => (
         <g key={axis.label}>
-          <line x1={chart.center} y1={chart.center} x2={axis.x2} y2={axis.y2} stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
-          <text x={axis.lx} y={axis.ly} fill="#52525b" fontSize="9" textAnchor="middle" dominantBaseline="middle">
+          <line x1={chart.center} y1={chart.center} x2={axis.x2} y2={axis.y2} stroke="var(--svg-axis)" strokeWidth="1" />
+          <text x={axis.lx} y={axis.ly} fill="var(--svg-text)" fontSize="9" textAnchor="middle" dominantBaseline="middle">
             {axis.label}
           </text>
         </g>
       ))}
-      <path d={chart.translatedPath} fill="rgba(0,114,189,0.12)" stroke="#0072BD" strokeWidth="2" />
+      <path d={chart.translatedPath} fill="var(--svg-radar-fill)" stroke="var(--matlab-blue)" strokeWidth="2" />
     </svg>
   );
 }

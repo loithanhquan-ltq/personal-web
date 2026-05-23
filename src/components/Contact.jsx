@@ -28,9 +28,9 @@ function Contact() {
           {/* Info chips */}
           <div className="flex flex-wrap justify-center gap-3">
             {INFO.map((item) => (
-              <div key={item.label} className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-center">
-                <p className="mono text-[10px] uppercase tracking-[0.18em] text-gray-400">{item.label}</p>
-                <p className="mt-0.5 text-sm text-gray-700">{item.value}</p>
+              <div key={item.label} className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-center dark:border-white/[0.06] dark:bg-[#1c2128]">
+                <p className="mono text-[10px] uppercase tracking-[0.18em] text-gray-400 dark:text-[#6e7681]">{item.label}</p>
+                <p className="mt-0.5 text-sm text-gray-700 dark:text-[#c9d1d9]">{item.value}</p>
               </div>
             ))}
           </div>
@@ -38,7 +38,7 @@ function Contact() {
           {/* Email CTA */}
           <a
             href="mailto:loithanhquan@gmail.com"
-            className="mt-8 inline-block rounded-full bg-[#0072BD] px-8 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+            className="mt-8 inline-block rounded-full bg-[#0072BD] px-8 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300"
           >
             loithanhquan@gmail.com
           </a>
@@ -51,7 +51,7 @@ function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition hover:border-[#0072BD] hover:text-[#0072BD]"
+                className="rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition hover:border-[#0072BD] hover:text-[#0072BD] dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:border-[#4da6ff] dark:hover:text-[#4da6ff]"
               >
                 {link.label}
               </a>

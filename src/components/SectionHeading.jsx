@@ -9,11 +9,11 @@ function SectionHeading({ eyebrow, title, description }) {
       transition={{ duration: 0.45 }}
       className="mb-10 max-w-4xl"
     >
-      <p className="mono mb-3 inline-flex rounded border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
+      <p className="mono mb-3 inline-flex rounded border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700 dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-400">
         {eyebrow}
       </p>
-      <h2 className="text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">{title}</h2>
-      <p className="mt-4 max-w-3xl text-gray-600">{description}</p>
+      <h2 className="text-3xl font-semibold leading-tight text-gray-900 dark:text-[#e6edf3] md:text-4xl">{title}</h2>
+      <p className="mt-4 max-w-3xl text-gray-600 dark:text-[#8b949e]">{description}</p>
     </motion.div>
   );
 }

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { heroStats, heroTypingPhrases } from "../data/content";
 
-const heroImage  = `${import.meta.env.BASE_URL}assets/bosch.jpg`;
+const heroImage   = `${import.meta.env.BASE_URL}assets/bosch.jpg`;
 const avatarImage = `${import.meta.env.BASE_URL}assets/avatar.jpeg`;
 
 function Hero() {
@@ -34,33 +34,32 @@ function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2">
 
-          {/* LEFT — identity */}
+          {/* LEFT */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <p className="mono mb-5 inline-flex rounded border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700">
+            <p className="mono mb-5 inline-flex rounded border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-blue-700 dark:border-blue-800 dark:bg-blue-950/40 dark:text-blue-400">
               Mechatronics Engineer
             </p>
 
-            {/* Name + avatar */}
             <div className="flex items-center gap-4">
               <img
                 src={avatarImage}
                 alt="Loi Thanh Quan"
-                className="h-14 w-14 flex-shrink-0 rounded-full border border-gray-200 object-cover object-top shadow-sm md:h-16 md:w-16"
+                className="h-14 w-14 flex-shrink-0 rounded-full border border-gray-200 object-cover object-top shadow-sm dark:border-white/[0.1] md:h-16 md:w-16"
               />
-              <h1 className="text-4xl font-bold leading-tight text-gray-900 md:text-5xl">
+              <h1 className="text-4xl font-bold leading-tight text-gray-900 dark:text-[#e6edf3] md:text-5xl">
                 Loi Thanh Quan
               </h1>
             </div>
 
-            <p className="terminal-caret mono mt-5 min-h-[1.5rem] text-sm text-[#0072BD] md:text-base">
+            <p className="terminal-caret mono mt-5 min-h-[1.5rem] text-sm text-[#0072BD] dark:text-[#4da6ff] md:text-base">
               {typed}
             </p>
 
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-gray-500">
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-gray-500 dark:text-[#7d8590]">
               Based in Ho Chi Minh City — building autonomous systems at the intersection of robotics, embedded AI, and control theory.
             </p>
 
@@ -68,36 +67,27 @@ function Hero() {
             <div className="mt-8 flex flex-wrap gap-6">
               {heroStats.map((s) => (
                 <div key={s.label}>
-                  <p className="text-2xl font-bold text-gray-900">{s.value}</p>
-                  <p className="mono mt-0.5 text-[11px] uppercase tracking-[0.18em] text-gray-400">{s.label}</p>
+                  <p className="text-2xl font-bold text-gray-900 dark:text-[#e6edf3]">{s.value}</p>
+                  <p className="mono mt-0.5 text-[11px] uppercase tracking-[0.18em] text-gray-400 dark:text-[#6e7681]">{s.label}</p>
                 </div>
               ))}
             </div>
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#projects"
-                className="rounded-full bg-[#0072BD] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
-              >
+              <a href="#projects" className="rounded-full bg-[#0072BD] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300">
                 View Projects
               </a>
-              <a
-                href={resumeUrl}
-                className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
-              >
+              <a href={resumeUrl} className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
                 Download CV
               </a>
-              <a
-                href="#contact"
-                className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50"
-              >
+              <a href="#contact" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
                 Get in Touch
               </a>
             </div>
           </motion.div>
 
-          {/* RIGHT — Bosch image */}
+          {/* RIGHT */}
           <motion.div
             className="overflow-hidden rounded-2xl shadow-md"
             initial={{ opacity: 0, x: 24 }}

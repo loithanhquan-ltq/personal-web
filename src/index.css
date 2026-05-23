@@ -4,53 +4,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Light mode tokens ─────────────────────────────────────────── */
 :root {
   color-scheme: light;
   scroll-behavior: smooth;
-  --bg-main: #f0f0f4;
-  --bg-elev: rgba(255, 255, 255, 0.98);
-  --bg-elev-2: rgba(246, 246, 250, 0.96);
-  --grid-c: rgba(0, 0, 0, 0.07);
-  --text-main: #18181b;
+  --bg-main:    #f0f0f4;
+  --bg-elev:    rgba(255,255,255,0.98);
+  --grid-c:     rgba(0,0,0,0.07);
+  --text-main:  #18181b;
   --text-muted: #52525b;
-  --line-main: rgba(0, 0, 0, 0.1);
-  --matlab-blue: #0072BD;
+  --line-main:  rgba(0,0,0,0.1);
+  --matlab-blue:   #0072BD;
   --matlab-orange: #E87722;
-  --matlab-green: #77AC30;
-  --matlab-red: #D95319;
-  /* legacy aliases */
-  --cyan: #0072BD;
-  --teal: #77AC30;
-  --blue: #E87722;
-  --warning: #D95319;
+  --matlab-green:  #77AC30;
+  --matlab-red:    #D95319;
+  /* SVG tokens */
+  --svg-ring:        rgba(0,0,0,0.09);
+  --svg-axis:        rgba(0,0,0,0.10);
+  --svg-radar-fill:  rgba(0,114,189,0.12);
+  --svg-text:        #52525b;
+  --svg-bar-track:   #e4e4e7;
 }
 
+/* ── Dark mode tokens ──────────────────────────────────────────── */
+.dark {
+  color-scheme: dark;
+  --bg-main:    #0d1117;
+  --bg-elev:    rgba(22,27,34,0.98);
+  --grid-c:     rgba(255,255,255,0.04);
+  --text-main:  #e6edf3;
+  --text-muted: #8b949e;
+  --line-main:  rgba(255,255,255,0.08);
+  --matlab-blue: #4da6ff;
+  /* SVG tokens */
+  --svg-ring:        rgba(255,255,255,0.09);
+  --svg-axis:        rgba(255,255,255,0.10);
+  --svg-radar-fill:  rgba(77,166,255,0.15);
+  --svg-text:        #6e7681;
+  --svg-bar-track:   #30363d;
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
 body {
   margin: 0;
-  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-family: "Manrope","Segoe UI",sans-serif;
   color: var(--text-main);
   background-color: var(--bg-main);
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.055) 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--grid-c) 1px, transparent 1px);
   background-size: 28px 28px;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: "Manrope", "Segoe UI", sans-serif;
+h1,h2,h3,h4 {
+  font-family: "Manrope","Segoe UI",sans-serif;
   letter-spacing: -0.01em;
 }
+code,.mono { font-family: "JetBrains Mono",monospace; }
 
-code,
-.mono {
-  font-family: "JetBrains Mono", monospace;
-}
-
+/* ── Layout helpers ────────────────────────────────────────────── */
 .grid-overlay {
-  background-image: linear-gradient(var(--grid-c) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--grid-c) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-c) 1px, transparent 1px);
   background-size: 40px 40px;
 }
@@ -59,104 +75,83 @@ code,
   @apply mx-auto w-full max-w-7xl px-4 py-20 md:px-8;
 }
 
+/* ── Card components ───────────────────────────────────────────── */
 .hud-card {
   @apply relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-
 .hud-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(0, 114, 189, 0.025), transparent 40%);
+  background: linear-gradient(160deg, rgba(0,114,189,0.025), transparent 40%);
   pointer-events: none;
 }
-
-.hud-frame {
-  position: relative;
+.dark .hud-card {
+  background-color: #161b22;
+  border-color: rgba(255,255,255,0.07);
 }
-
-.hud-frame::before,
-.hud-frame::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 1px solid rgba(0, 114, 189, 0.45);
-  pointer-events: none;
-}
-
-.hud-frame::before {
-  top: -1px;
-  left: -1px;
-  border-right: none;
-  border-bottom: none;
-}
-
-.hud-frame::after {
-  right: -1px;
-  bottom: -1px;
-  border-left: none;
-  border-top: none;
+.dark .hud-card::before {
+  background: linear-gradient(160deg, rgba(77,166,255,0.04), transparent 40%);
 }
 
 .tech-pill {
   @apply inline-flex items-center rounded border border-blue-200 bg-blue-50 px-2.5 py-0.5 text-xs font-medium tracking-wide text-blue-700;
 }
+.dark .tech-pill {
+  background-color: rgba(30,58,138,0.25);
+  border-color: rgba(59,130,246,0.25);
+  color: #93c5fd;
+}
 
 .instrument-panel {
   @apply rounded-lg border border-gray-200 bg-gray-50 p-4;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.dark .instrument-panel {
+  background-color: #1c2128;
+  border-color: rgba(255,255,255,0.06);
 }
 
+/* ── HUD frame corners ─────────────────────────────────────────── */
+.hud-frame { position: relative; }
+.hud-frame::before,.hud-frame::after {
+  content: "";
+  position: absolute;
+  width: 18px; height: 18px;
+  border: 1px solid rgba(0,114,189,0.45);
+  pointer-events: none;
+}
+.hud-frame::before { top:-1px; left:-1px; border-right:none; border-bottom:none; }
+.hud-frame::after  { right:-1px; bottom:-1px; border-left:none; border-top:none; }
+
+/* ── Terminal caret ────────────────────────────────────────────── */
 .terminal-caret::after {
   content: "";
-  width: 10px;
-  height: 1.1em;
+  width: 10px; height: 1.1em;
   margin-left: 6px;
   display: inline-block;
   background-color: var(--matlab-blue);
   animation: blink 1s step-end infinite;
 }
 
-.scanline {
-  display: none;
-}
-
-.blueprint-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-  background-size: 26px 26px;
-}
-
-@keyframes blink {
-  0%,
-  50% {
-    opacity: 1;
-  }
-  51%,
-  100% {
-    opacity: 0;
-  }
-}
-
+/* ── Corner bracket glow ───────────────────────────────────────── */
 .corner-bracket {
-  filter: drop-shadow(0 0 3px rgba(0, 114, 189, 0.45));
+  filter: drop-shadow(0 0 3px rgba(0,114,189,0.45));
   animation: corner-pulse 3s ease-in-out 1s infinite;
 }
 
-@keyframes corner-pulse {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 2px rgba(0, 114, 189, 0.4));
-  }
-  50% {
-    filter: drop-shadow(0 0 6px rgba(0, 114, 189, 0.75));
-  }
+/* ── Animations ────────────────────────────────────────────────── */
+@keyframes blink {
+  0%,50% { opacity:1; }
+  51%,100% { opacity:0; }
 }
-
+@keyframes corner-pulse {
+  0%,100% { filter: drop-shadow(0 0 2px rgba(0,114,189,0.4)); }
+  50%      { filter: drop-shadow(0 0 6px rgba(0,114,189,0.75)); }
+}
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *,*::before,*::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
