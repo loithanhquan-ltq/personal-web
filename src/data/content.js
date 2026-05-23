@@ -245,8 +245,8 @@ export const publications = [
 ];
 
 export const socialLinks = [
-  { label: "GitHub",         href: "https://github.com/loithanhquan-ltq" },
-  { label: "LinkedIn",       href: "https://linkedin.com/in/loithanhquan" },
-  { label: "Google Scholar", href: "https://scholar.google.com" },
-  { label: "Email",          href: "mailto:loithanhquan@gmail.com" },
+  { label: "GitHub",    href: "https://github.com/loithanhquan-ltq" },
+  { label: "LinkedIn",  href: "https://www.linkedin.com/in/loi-thanh-quan-2b8330265/" },
+  { label: "YouTube",   href: "https://www.youtube.com/@roboticsltq" },
+  { label: "Email",     href: "mailto:loithanhquan@gmail.com" },
 ];
