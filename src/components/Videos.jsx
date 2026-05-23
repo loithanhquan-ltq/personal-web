@@ -12,7 +12,8 @@ const PlayIcon = () => (
 function VideoCard({ video, index, featured = false }) {
   const [playing, setPlaying] = useState(false);
   const isSample = video.id.startsWith("SAMPLE");
-  const thumbUrl = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+  const thumbUrl = `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
+  const thumbFallback = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
   return (
     <motion.article
@@ -53,6 +54,7 @@ function VideoCard({ video, index, featured = false }) {
                   src={thumbUrl}
                   alt={video.title}
                   className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                  onError={(e) => { e.currentTarget.src = thumbFallback; }}
                 />
                 {/* Dark overlay on hover */}
                 <div className="absolute inset-0 bg-black/20 opacity-0 transition group-hover:opacity-100" />
