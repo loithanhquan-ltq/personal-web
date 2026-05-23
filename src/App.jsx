@@ -6,6 +6,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Videos from "./components/Videos";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
@@ -42,6 +43,7 @@ function App() {
         <motion.div {...sectionAnimation}><Projects /></motion.div>
         <motion.div {...sectionAnimation}><Skills /></motion.div>
         <motion.div {...sectionAnimation}><Experience /></motion.div>
+        <motion.div {...sectionAnimation}><Videos /></motion.div>
         <motion.div {...sectionAnimation}><Contact /></motion.div>
       </main>
 

@@ -5,7 +5,36 @@ export const navLinks = [
   { label: "Projects",   href: "#projects" },
   { label: "Skills",     href: "#skills" },
   { label: "Experience", href: "#experience" },
+  { label: "Videos",     href: "#videos" },
   { label: "Contact",    href: "#contact" },
+];
+
+export const videos = [
+  {
+    id: "SAMPLE_01",
+    title: "Autonomous Navigation Demo",
+    description: "Indoor robot navigating a dynamic factory environment using SLAM and model predictive control.",
+  },
+  {
+    id: "SAMPLE_02",
+    title: "SLAM Mapping in Action",
+    description: "Real-time map building across a 500 m² test facility with loop closure and drift correction.",
+  },
+  {
+    id: "SAMPLE_03",
+    title: "Vision Inspection System",
+    description: "Edge AI pipeline detecting surface defects on a production line at 42 ms inference latency.",
+  },
+  {
+    id: "SAMPLE_04",
+    title: "6-DoF Arm Trajectory Control",
+    description: "Inverse kinematics solver driving a collaborative manipulator through a precision assembly sequence.",
+  },
+  {
+    id: "SAMPLE_05",
+    title: "Drone Stabilization Test",
+    description: "Adaptive attitude controller rejecting wind disturbances during outdoor hover flight.",
+  },
 ];
 
 export const heroTypingPhrases = [
