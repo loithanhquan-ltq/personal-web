@@ -21,19 +21,19 @@ export const videos = [
     description: "Real-time area lighting implementation using OpenGL with an interactive IMGUI control panel for parameter tuning.",
   },
   {
-    id: "SAMPLE_03",
-    title: "Vision Inspection System",
-    description: "Edge AI pipeline detecting surface defects on a production line at 42 ms inference latency.",
+    id: "z1cmnbIJCOo",
+    title: "ROS Multi-Point Autonomous Navigation",
+    description: "Autonomous robot navigating sequentially through multiple waypoints using ROS navigation stack.",
   },
   {
-    id: "SAMPLE_04",
-    title: "6-DoF Arm Trajectory Control",
-    description: "Inverse kinematics solver driving a collaborative manipulator through a precision assembly sequence.",
+    id: "cB-yP_k6eQw",
+    title: "The Mechatronics Clock",
+    description: "A mechatronics-driven clock combining embedded control, mechanical design, and real-time actuation.",
   },
   {
-    id: "SAMPLE_05",
-    title: "Drone Stabilization Test",
-    description: "Adaptive attitude controller rejecting wind disturbances during outdoor hover flight.",
+    id: "enQ91Bd1w5U",
+    title: "Turtlebot Navigation — ROS Noetic",
+    description: "Turtlebot navigating autonomously in a mapped environment using ROS Noetic and the move_base stack.",
   },
 ];
 
