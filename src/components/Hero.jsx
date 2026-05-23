@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { heroStats, heroTypingPhrases } from "../data/content";
 
-const heroImage  = `${import.meta.env.BASE_URL}assets/bosch.png`;
+const heroImage  = `${import.meta.env.BASE_URL}assets/bosch.jpg`;
 const avatarImage = `${import.meta.env.BASE_URL}assets/avatar.jpeg`;
 
 function Hero() {
