@@ -10,8 +10,8 @@ export const navLinks = [
 
 export const heroTypingPhrases = [
   "Autonomous Systems · Embedded AI · Control Theory",
-  "ROS2 · C++ · Sensor Fusion · SLAM",
-  "Mechatronics · Robotics · Cyber-Physical Design",
+  "ROS2 · C++ · SLAM",
+  "Mechatronics · Robotics",
 ];
 
 export const heroStats = [
