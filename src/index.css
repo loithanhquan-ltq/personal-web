@@ -173,3 +173,12 @@ code,.mono { font-family: "JetBrains Mono",monospace; }
     scroll-behavior: auto !important;
   }
 }
+
+@media (max-width: 639px) {
+  body {
+    background-size: 40px 40px;
+  }
+  .grid-overlay {
+    background-size: 56px 56px;
+  }
+}

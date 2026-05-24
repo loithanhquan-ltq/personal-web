@@ -49,7 +49,7 @@ function RadarChart({ metrics, size = 260 }) {
       {chart.axes.map((axis) => (
         <g key={axis.label}>
           <line x1={chart.center} y1={chart.center} x2={axis.x2} y2={axis.y2} stroke="var(--svg-axis)" strokeWidth="1" />
-          <text x={axis.lx} y={axis.ly} fill="var(--svg-text)" fontSize="9" textAnchor="middle" dominantBaseline="middle">
+          <text x={axis.lx} y={axis.ly} fill="var(--svg-text)" fontSize="11" textAnchor="middle" dominantBaseline="middle">
             {axis.label}
           </text>
         </g>

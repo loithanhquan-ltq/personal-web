@@ -51,7 +51,7 @@ function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition hover:border-[#0072BD] hover:text-[#0072BD] dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:border-[#4da6ff] dark:hover:text-[#4da6ff]"
+                className="inline-flex min-h-[44px] items-center rounded-full border border-gray-300 bg-white px-5 text-sm font-medium text-gray-700 transition hover:border-[#0072BD] hover:text-[#0072BD] dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:border-[#4da6ff] dark:hover:text-[#4da6ff]"
               >
                 {link.label}
               </a>
