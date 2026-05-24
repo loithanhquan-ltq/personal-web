@@ -78,7 +78,7 @@ function Hero() {
               <a href="#projects" className="rounded-full bg-[#0072BD] px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300">
                 View Projects
               </a>
-              <a href={resumeUrl} className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
+              <a href={resumeUrl} className="rounded-full bg-gray-900 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700 dark:bg-[#e6edf3] dark:text-[#0d1117] dark:hover:bg-white">
                 Download CV
               </a>
               <a href="#contact" className="rounded-full border border-gray-300 bg-white px-6 py-2.5 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:bg-[#161b22] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
@@ -104,6 +104,30 @@ function Hero() {
 
         </div>
       </div>
+
+      {/* Scroll affordance */}
+      <motion.a
+        href="#about"
+        aria-label="Scroll to about"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-gray-400 dark:text-[#484f58]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <span className="mono text-[10px] uppercase tracking-[0.22em]">Scroll</span>
+        <motion.svg
+          viewBox="0 0 16 16"
+          className="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          aria-hidden="true"
+          animate={{ y: [0, 4, 0] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path d="M2 5l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+        </motion.svg>
+      </motion.a>
     </section>
   );
 }
