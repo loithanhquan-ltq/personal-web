@@ -1,11 +1,32 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import RadarChart from "./RadarChart";
+import TiltCard from "./TiltCard";
 import { radarMetrics, skillSet, techStack } from "../data/content";
 
 const GROUPS = ["Robotics", "Software", "Embedded", "Control"];
 const GROUP_COLORS = { Robotics: "bg-[#0072BD]", Software: "bg-[#77AC30]", Embedded: "bg-[#E87722]", Control: "bg-purple-500" };
 const GROUP_TEXT   = { Robotics: "text-[#0072BD] dark:text-[#4da6ff]", Software: "text-[#77AC30]", Embedded: "text-[#E87722]", Control: "text-purple-500" };
+
+const pillContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05 } },
+};
+
+const pillItem = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show:   { opacity: 1, scale: 1, transition: { duration: 0.25, ease: "easeOut" } },
+};
+
+const metricContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+};
+
+const metricItem = {
+  hidden: { opacity: 0, y: 10 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
+};
 
 function Skills() {
   return (
@@ -18,21 +39,31 @@ function Skills() {
 
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Radar */}
-        <div className="hud-card rounded-2xl p-6">
+        <TiltCard maxTilt={5} className="hud-card rounded-2xl p-6">
           <p className="mono mb-4 text-xs uppercase tracking-[0.2em] text-[#0072BD] dark:text-[#4da6ff]">Competency Radar</p>
           <RadarChart metrics={radarMetrics} />
-          <div className="mt-4 grid grid-cols-3 gap-2">
+          <motion.div
+            className="mt-4 grid grid-cols-3 gap-2"
+            variants={metricContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
             {radarMetrics.map((m) => (
-              <div key={m.axis} className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center dark:border-white/[0.06] dark:bg-[#1c2128]">
+              <motion.div
+                key={m.axis}
+                variants={metricItem}
+                className="rounded-lg border border-gray-200 bg-gray-50 p-2 text-center dark:border-white/[0.06] dark:bg-[#1c2128]"
+              >
                 <p className="mono text-[10px] uppercase tracking-[0.15em] text-gray-500 dark:text-[#7d8590]">{m.axis}</p>
                 <p className="mt-0.5 text-sm font-semibold text-gray-800 dark:text-[#e6edf3]">{m.value}%</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </TiltCard>
 
         {/* Skill bars */}
-        <div className="hud-card rounded-2xl p-6">
+        <TiltCard maxTilt={5} className="hud-card rounded-2xl p-6">
           <p className="mono mb-5 text-xs uppercase tracking-[0.2em] text-[#0072BD] dark:text-[#4da6ff]">Core Skills</p>
           <div className="space-y-3">
             {GROUPS.map((group) => {
@@ -63,7 +94,7 @@ function Skills() {
               );
             })}
           </div>
-        </div>
+        </TiltCard>
       </div>
 
       {/* Tech stack */}
@@ -71,12 +102,20 @@ function Skills() {
         <p className="mono mb-5 text-xs uppercase tracking-[0.2em] text-[#0072BD] dark:text-[#4da6ff]">Tech Stack</p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {techStack.map((cat) => (
-            <div key={cat.category}>
+            <motion.div
+              key={cat.category}
+              variants={pillContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+            >
               <p className="mono mb-2 text-[10px] uppercase tracking-[0.2em] text-gray-400 dark:text-[#6e7681]">{cat.category}</p>
               <div className="flex flex-wrap gap-1.5">
-                {cat.items.map((item) => <span key={item} className="tech-pill">{item}</span>)}
+                {cat.items.map((it) => (
+                  <motion.span key={it} variants={pillItem} className="tech-pill">{it}</motion.span>
+                ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -28,6 +28,13 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleToggle = () => {
+    const html = document.documentElement;
+    html.classList.add("theme-transitioning");
+    setIsDark((v) => !v);
+    setTimeout(() => html.classList.remove("theme-transitioning"), 350);
+  };
+
   const sectionAnimation = useMemo(
     () => ({
       initial: { opacity: 0, y: 30 },
@@ -43,7 +50,7 @@ function App() {
       <ParticleBackground />
       <AnimatePresence>{loading ? <LoadingScreen key="loader" /> : null}</AnimatePresence>
 
-      <Navbar isDark={isDark} onToggle={() => setIsDark((v) => !v)} />
+      <Navbar isDark={isDark} onToggle={handleToggle} />
 
       <main className="relative z-10">
         <Hero />

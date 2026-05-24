@@ -23,7 +23,7 @@ const MoonIcon = () => (
 function ThemeToggle({ isDark, onToggle }) {
   return (
     <motion.button
-      onClick={onToggle}
+      onClick={(e) => onToggle(e)}
       className={`flex h-9 w-9 items-center justify-center rounded-full transition-colors duration-300 ${
         isDark
           ? "bg-[#1c2128] shadow-[0_0_12px_rgba(77,166,255,0.2)] ring-1 ring-[#4da6ff]/30"
@@ -36,16 +36,6 @@ function ThemeToggle({ isDark, onToggle }) {
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (
           <motion.span
-            key="moon"
-            initial={{ rotate: -60, opacity: 0, scale: 0.7 }}
-            animate={{ rotate: 0,   opacity: 1, scale: 1   }}
-            exit={{    rotate: 60,  opacity: 0, scale: 0.7 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
-            <MoonIcon />
-          </motion.span>
-        ) : (
-          <motion.span
             key="sun"
             initial={{ rotate: 60,  opacity: 0, scale: 0.7 }}
             animate={{ rotate: 0,   opacity: 1, scale: 1   }}
@@ -53,6 +43,16 @@ function ThemeToggle({ isDark, onToggle }) {
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
             <SunIcon />
+          </motion.span>
+        ) : (
+          <motion.span
+            key="moon"
+            initial={{ rotate: -60, opacity: 0, scale: 0.7 }}
+            animate={{ rotate: 0,   opacity: 1, scale: 1   }}
+            exit={{    rotate: 60,  opacity: 0, scale: 0.7 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            <MoonIcon />
           </motion.span>
         )}
       </AnimatePresence>

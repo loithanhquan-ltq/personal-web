@@ -1,19 +1,24 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import TiltCard from "./TiltCard";
 import { projects } from "../data/content";
 
 const featured = projects.filter((p) => p.featured);
 const rest      = projects.filter((p) => !p.featured);
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.13 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 28 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+};
+
 function FeaturedCard({ project, index }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="hud-card overflow-hidden rounded-2xl"
-    >
+    <TiltCard maxTilt={4} variants={item} className="hud-card overflow-hidden rounded-2xl">
       {/* Header */}
       <div className="flex items-center gap-4 border-b border-gray-100 bg-gray-50 px-6 py-3 dark:border-white/[0.05] dark:bg-[#1c2128]">
         <span className="mono text-[10px] uppercase tracking-[0.25em] text-[#0072BD] dark:text-[#4da6ff]">
@@ -74,19 +79,13 @@ function FeaturedCard({ project, index }) {
           </div>
         </div>
       </div>
-    </motion.article>
+    </TiltCard>
   );
 }
 
 function CompactCard({ project, index }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.06 }}
-      className="hud-card flex flex-col rounded-xl p-5"
-    >
+    <TiltCard variants={item} className="hud-card flex flex-col rounded-xl p-5">
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold text-gray-900 dark:text-[#e6edf3]">{project.title}</h3>
         <span className="mono flex-shrink-0 text-[10px] uppercase tracking-wider text-gray-300 dark:text-[#484f58]">
@@ -97,7 +96,7 @@ function CompactCard({ project, index }) {
       <div className="mt-3 flex flex-wrap gap-1.5">
         {project.tech.slice(0, 4).map((t) => <span key={t} className="tech-pill">{t}</span>)}
       </div>
-      <div className="mt-4 flex gap-2">
+      <div className="mt-auto pt-4 flex gap-2">
         <a href={project.github} target="_blank" rel="noreferrer"
           className="rounded-full bg-[#0072BD] px-3.5 py-1.5 text-xs font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300">
           GitHub
@@ -109,7 +108,7 @@ function CompactCard({ project, index }) {
           </a>
         )}
       </div>
-    </motion.article>
+    </TiltCard>
   );
 }
 
@@ -121,12 +120,28 @@ function Projects() {
         title="Systems built and shipped"
         description="Selected work with documented architecture, engineering constraints, and measured outcomes."
       />
-      <div className="space-y-6">
-        {featured.map((project, i) => <FeaturedCard key={project.title} project={project} index={i} />)}
-      </div>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {rest.map((project, i) => <CompactCard key={project.title} project={project} index={i} />)}
-      </div>
+      <motion.div
+        className="space-y-6"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.05 }}
+      >
+        {featured.map((project, i) => (
+          <FeaturedCard key={project.title} project={project} index={i} />
+        ))}
+      </motion.div>
+      <motion.div
+        className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.05 }}
+      >
+        {rest.map((project, i) => (
+          <CompactCard key={project.title} project={project} index={i} />
+        ))}
+      </motion.div>
     </section>
   );
 }
