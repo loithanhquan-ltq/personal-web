@@ -3,9 +3,8 @@ import SectionHeading from "./SectionHeading";
 import { socialLinks } from "../data/content";
 
 const INFO = [
-  { label: "Location",     value: "Ho Chi Minh City, Vietnam" },
-  { label: "Availability", value: "Open to full-time & research roles" },
-  { label: "Response",     value: "Typically within 24 hours" },
+  { label: "Location", value: "Ho Chi Minh City, Vietnam" },
+  { label: "Response", value: "Typically within 24 hours" },
 ];
 
 function Contact() {
@@ -25,6 +24,12 @@ function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
+          {/* Availability status */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700 dark:border-green-800/50 dark:bg-green-950/30 dark:text-green-400">
+            <span className="h-2 w-2 flex-shrink-0 rounded-full bg-green-500 dark:bg-green-400" />
+            Available for full-time &amp; research roles
+          </div>
+
           {/* Info chips */}
           <div className="flex flex-wrap justify-center gap-3">
             {INFO.map((item) => (
@@ -45,7 +50,7 @@ function Contact() {
 
           {/* Social links */}
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            {socialLinks.filter((l) => l.label !== "Email").map((link) => (
+            {socialLinks.filter((l) => l.label !== "Email" && l.label !== "Instagram").map((link) => (
               <a
                 key={link.label}
                 href={link.href}

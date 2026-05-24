@@ -74,9 +74,8 @@ function Skills() {
                   <div className="space-y-2">
                     {items.map((skill, idx) => (
                       <motion.div key={skill.name} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.04 }}>
-                        <div className="mono mb-1 flex justify-between text-[11px] text-gray-500 dark:text-[#7d8590]">
+                        <div className="mono mb-1 text-[11px] text-gray-500 dark:text-[#7d8590]">
                           <span>{skill.name}</span>
-                          <span>{skill.level}%</span>
                         </div>
                         <div className="h-1.5 rounded-full bg-gray-200 dark:bg-[#30363d]">
                           <motion.div

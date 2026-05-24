@@ -75,8 +75,14 @@ function Navbar({ isDark, onToggle }) {
         animate="visible"
         className="mx-auto grid max-w-7xl grid-cols-[1fr_auto_1fr] items-center rounded-xl border border-gray-200 bg-white/95 px-4 py-3 shadow-sm backdrop-blur-sm dark:border-white/[0.07] dark:bg-[#161b22]/95 md:px-5"
       >
-        {/* Left spacer */}
-        <div />
+        {/* Left — identity anchor */}
+        <a
+          href="#home"
+          className="mono text-sm font-bold tracking-[0.18em] text-gray-800 transition-colors hover:text-[#0072BD] dark:text-[#c9d1d9] dark:hover:text-[#4da6ff]"
+          aria-label="Back to top"
+        >
+          LTQ
+        </a>
 
         {/* Center — nav links */}
         <ul className="hidden items-center gap-6 md:flex">
