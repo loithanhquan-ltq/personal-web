@@ -67,7 +67,7 @@ function DashboardFrame({ children, padding = "p-5 md:p-7" }) {
       {corners.map((c, i) => (
         <motion.p
           key={`lbl-${i}`}
-          className={`mono absolute ${c.labelPos} ${c.labelAlign} text-[9px] uppercase tracking-[0.22em] text-gray-400`}
+          className={`mono absolute ${c.labelPos} ${c.labelAlign} text-[9px] sm:text-[11px] uppercase tracking-[0.22em] text-gray-400`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.55 + i * 0.06, duration: 0.4 }}

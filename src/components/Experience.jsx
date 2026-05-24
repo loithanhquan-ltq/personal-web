@@ -30,7 +30,7 @@ function Experience() {
         {/* Timeline */}
         <div>
           <p className="mono mb-6 text-xs uppercase tracking-[0.22em] text-[#0072BD] dark:text-[#4da6ff]">Career & Education</p>
-          <div className="relative border-l border-blue-200 pl-7 dark:border-blue-900">
+          <div className="relative border-l border-blue-200 pl-5 sm:pl-7 dark:border-blue-900">
             {timelineItems.map((item, index) => (
               <motion.article
                 key={item.title}
@@ -40,7 +40,7 @@ function Experience() {
                 transition={{ delay: index * 0.08 }}
                 className="relative mb-6 last:mb-0"
               >
-                <span className="absolute -left-[1.9rem] top-1.5 h-3 w-3 rounded-full border-2 border-[#0072BD] bg-[#0072BD] dark:border-[#4da6ff] dark:bg-[#4da6ff]" />
+                <span className="absolute -left-[1.4rem] top-1.5 h-3 w-3 rounded-full border-2 border-[#0072BD] bg-[#0072BD] sm:-left-[1.9rem] dark:border-[#4da6ff] dark:bg-[#4da6ff]" />
                 <div className="hud-card rounded-xl p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="mono text-xs font-semibold text-[#0072BD] dark:text-[#4da6ff]">{item.year}</span>

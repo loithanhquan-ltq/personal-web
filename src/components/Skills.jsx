@@ -43,7 +43,7 @@ function Skills() {
           <p className="mono mb-4 text-xs uppercase tracking-[0.2em] text-[#0072BD] dark:text-[#4da6ff]">Competency Radar</p>
           <RadarChart metrics={radarMetrics} />
           <motion.div
-            className="mt-4 grid grid-cols-3 gap-2"
+            className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3"
             variants={metricContainer}
             initial="hidden"
             whileInView="show"

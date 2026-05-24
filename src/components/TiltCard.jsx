@@ -1,7 +1,17 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 function TiltCard({ children, className = "", maxTilt = 6, variants }) {
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: coarse)");
+    setIsTouch(mq.matches);
+    const handler = (e) => setIsTouch(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const ref = useRef(null);
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
@@ -16,6 +26,14 @@ function TiltCard({ children, className = "", maxTilt = 6, variants }) {
     ([lx, ly]) =>
       `radial-gradient(circle at ${(lx + 0.5) * 100}% ${(ly + 0.5) * 100}%, rgba(255,255,255,0.08) 0%, transparent 60%)`
   );
+
+  if (isTouch) {
+    return (
+      <motion.div variants={variants} className={`relative ${className}`}>
+        {children}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
