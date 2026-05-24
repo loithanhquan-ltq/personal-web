@@ -38,8 +38,8 @@ export const videos = [
 ];
 
 export const heroTypingPhrases = [
-  "Mechatronics · Autonomous Systems · Embedded AI",
-  "Robotics · ROS2 · C++ · SLAM",
+  "Autonomous Systems · Embedded AI · Control Theory",
+  "Open to full-time engineering roles",
 ];
 
 export const heroStats = [
@@ -52,7 +52,7 @@ export const profileSummary = {
   name: "Loi Thanh Quan",
   role: "Mechatronics Engineer",
   bio: "I design autonomous systems where embedded intelligence, precise control, and mechanical engineering converge into real deployed platforms — from factory-floor navigation robots to UAV attitude controllers.",
-  portrait: `${assetBase}/quan.jpeg`,
+  portrait: `${assetBase}/avatar.jpeg`,
   technicalDomains: [
     "Autonomous navigation & SLAM",
     "Embedded software for robotics",
