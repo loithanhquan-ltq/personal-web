@@ -54,12 +54,12 @@ function FeaturedCard({ project, index }) {
 
           <div className="mt-5 flex gap-3">
             <a href={project.github} target="_blank" rel="noreferrer"
-              className="rounded-full bg-[#0072BD] px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300">
+              className="rounded-full bg-[#0072BD] px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-blue-700 dark:bg-[#4da6ff] dark:text-[#0d1117] dark:hover:bg-blue-300">
               GitHub
             </a>
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noreferrer"
-                className="rounded-full border border-gray-300 px-4 py-2 text-xs font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
+                className="rounded-full border border-gray-300 px-4 py-2.5 text-xs font-semibold text-gray-700 transition hover:bg-gray-50 dark:border-white/[0.1] dark:text-[#c9d1d9] dark:hover:bg-[#1c2128]">
                 Demo
               </a>
             )}
