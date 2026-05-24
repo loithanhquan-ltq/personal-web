@@ -277,5 +277,6 @@ export const socialLinks = [
   { label: "GitHub",    href: "https://github.com/loithanhquan-ltq" },
   { label: "LinkedIn",  href: "https://www.linkedin.com/in/loi-thanh-quan-2b8330265/" },
   { label: "YouTube",   href: "https://www.youtube.com/@roboticsltq" },
+  { label: "Instagram", href: "https://www.instagram.com/loi.thanh.quan/" },
   { label: "Email",     href: "mailto:loithanhquan@gmail.com" },
 ];
