@@ -18,6 +18,7 @@
   --matlab-orange: #E87722;
   --matlab-green:  #77AC30;
   --matlab-red:    #D95319;
+  --cursor-c:      rgba(70, 82, 95, 0.55);
   /* SVG tokens */
   --svg-ring:        rgba(0,0,0,0.09);
   --svg-axis:        rgba(0,0,0,0.10);
@@ -36,12 +37,18 @@
   --text-muted: #8b949e;
   --line-main:  rgba(255,255,255,0.08);
   --matlab-blue: #4da6ff;
+  --cursor-c:    rgba(155, 168, 182, 0.55);
   /* SVG tokens */
   --svg-ring:        rgba(255,255,255,0.09);
   --svg-axis:        rgba(255,255,255,0.10);
   --svg-radar-fill:  rgba(77,166,255,0.15);
   --svg-text:        #6e7681;
   --svg-bar-track:   #30363d;
+}
+
+/* ── Custom cursor — hide system cursor on pointer:fine devices ── */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
 }
 
 /* ── Base ──────────────────────────────────────────────────────── */

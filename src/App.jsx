@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 import ParticleBackground from "./components/ParticleBackground";
+import MagneticCursor from "./components/MagneticCursor";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -47,7 +48,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[--bg-main] text-[--text-main]">
-      <ParticleBackground />
+      <MagneticCursor />
+      <ParticleBackground isDark={isDark} />
       <AnimatePresence>{loading ? <LoadingScreen key="loader" /> : null}</AnimatePresence>
 
       <Navbar isDark={isDark} onToggle={handleToggle} />
